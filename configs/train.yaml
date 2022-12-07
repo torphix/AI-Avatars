@@ -1,0 +1,42 @@
+trainer:
+  devices: 1
+  max_epochs: 100
+  min_epochs: 100
+  auto_lr_find: False
+  # auto_scale_batch_size: "binsearch"
+  check_val_every_n_epoch: 1
+  accelerator: "gpu"
+  # Load checkpoint from here
+  gradient_clip_val: 1
+  gradient_clip_algorithm: "value"
+  accumulate_grad_batches: 8
+
+
+base:
+  split_size: [0.95, 0.05]
+
+  train_dl:
+    batch_size: 32
+    shuffle: True
+    pin_memory: True
+    num_workers: 4
+
+  g_optim:
+    lr: 1.0e-4
+    betas: [0.9, 0.999]
+  g_scheduler:
+    mode: 'min'
+    factor: 0.5
+    patience: 5
+    cooldown: 5
+    min_lr: 5.0e-7
+
+  d_optim:
+    lr: 1.0e-4
+    betas: [0.9, 0.999]
+  d_scheduler:
+    mode: 'min'
+    factor: 0.5
+    patience: 5
+    cooldown: 5
+    min_lr: 5.0e-7

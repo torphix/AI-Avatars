@@ -1,0 +1,3 @@
+data_path: '/home/j/Desktop/Programming/DeepLearning/Animator/NeuralHeadAvatars/data/database/processed_data'
+video_dir:  '/home/j/Desktop/Programming/DeepLearning/Animator/NeuralHeadAvatars/data/database/vox/test'
+
